@@ -78,7 +78,7 @@ $user = new \Elabftw\Elabftw\User();
 
 // pages where you don't need to be logged in
 // reset.php is in fact app/reset.php but we use basename so...
-$nologin_arr = array('login.php', 'login-exec.php', 'register.php', 'register-exec.php', 'change-pass.php', 'reset.php');
+$nologin_arr = array('login.php', 'login-exec.php', 'register.php', 'register-exec.php', 'change-pass.php', 'reset.php', 'opensauces.php');
 
 if (!isset($_SESSION['auth']) && !in_array(basename($_SERVER['SCRIPT_FILENAME']), $nologin_arr)) {
     // try to login with the cookie
