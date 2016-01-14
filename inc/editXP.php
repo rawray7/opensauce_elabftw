@@ -71,9 +71,13 @@ if ($experiment['locked'] == 1) {
             <img src='img/eye.png' class='bot5px' alt='visibility' />
             <label for='visibility_select'><?php echo _('Visibility'); ?></label>
             <select id="visibility_select" name="visibility" onchange="update_visibility(this.value)">
+                <option value="public" <?php if ($experiment['visibility'] === 'public') {
+        echo "selected";
+    }
+    ?>><?php echo _('Public'); ?></option>
                 <option value="organization" <?php if ($experiment['visibility'] === 'organization') {
         echo "selected";
-    }?>><?php echo _('Everyone with an account'); ?></option>
+    }?>><?php echo _('Everyone with an openSauce account'); ?></option>
                 <option value="team" <?php if ($experiment['visibility'] === 'team') {
         echo "selected";
     }?>><?php echo _('Only the team'); ?></option>
