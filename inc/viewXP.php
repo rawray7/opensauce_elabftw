@@ -88,7 +88,7 @@ if ($data['userid'] != $_SESSION['userid']) {
         $owner = $get_owner->fetch();
         if ($owner['team'] != $_SESSION['team_id']) {
             // the experiment needs to be organization for us to see it as we are not in the team of the owner
-            if ($data['visibility'] != 'organization') {
+            if ($data['visibility'] != ('organization' || 'public')) {
                 display_message('error', _("<strong>Access forbidden:</strong> you don't have the rights to access this."));
                 require_once 'inc/footer.php';
                 exit;
