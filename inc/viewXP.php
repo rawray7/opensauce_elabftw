@@ -225,7 +225,7 @@ require_once 'inc/display_file.php';
         printf(_("Log in to comment.<br> Don't have an account? %sRegister%s now!"), "<a href='register.php'>", "</a>");
     }
 
-    <?>
+    ?>
 
     <p class='editable newexpcomment' id='newexpcomment_<?php echo $id; ?>'><?php echo _('Add a comment'); ?></p>
 <?php
