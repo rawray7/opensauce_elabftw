@@ -216,6 +216,17 @@ require_once 'inc/display_file.php';
 <section id='expcomment_container'>
 <div id='expcomment' class='box'>
     <h3><img src='img/comment.png' alt='comment' /> <?php echo _('Comments'); ?></h3>
+    
+    <?php 
+    //if logged in 
+    if (isset($_SESSION['auth']) && $_SESSION['auth'] === 1) {
+
+    } else {
+        printf(_("Log in to comment.<br> Don't have an account? %sRegister%s now!"), "<a href='register.php'>", "</a>");
+    }
+
+    <?>
+
     <p class='editable newexpcomment' id='newexpcomment_<?php echo $id; ?>'><?php echo _('Add a comment'); ?></p>
 <?php
 
