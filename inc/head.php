@@ -56,7 +56,7 @@ $ftw = $ftw_arr[0];
 <meta name="author" content="Nicolas CARPi" />
 <link rel="icon" type="image/ico" href="img/favicon.ico" />
 <?php
-echo "<title>" . (isset($page_title) ? $page_title : "Lab manager") . " - eLab " . $ftw . "</title>";
+echo "<title>" . (isset($page_title) ? $page_title : "Lab manager") . " - Open Sauce " . $ftw . "</title>";
 ?>
 <!-- CSS -->
 <!-- Bootstrap -->
@@ -100,7 +100,7 @@ if (isset($_SESSION['auth']) && $_SESSION['auth'] === 1) {
     }
     ?>' />
     </form>
-    <span id='logonav'>elab<span class='strong' style='color:white;'>FTW</span></span>
+    <span id='logonav'>Open<span class='strong' style='color:white;'>Sauce</span></span>
     <?php
     echo "<a href='experiments.php?mode=show'";
     if ($selected_menu == 'Experiments') {
