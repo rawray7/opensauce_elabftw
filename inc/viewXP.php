@@ -220,6 +220,8 @@ require_once 'inc/display_file.php';
     <?php 
     //if logged in 
     if (isset($_SESSION['auth']) && $_SESSION['auth'] === 1) {
+        echo "<p class='editable newexpcomment' id='newexpcomment_" $id "'> 'Add a comment' </p>"; 
+
 
     } else {
         printf(_("Log in to comment.<br> Don't have an account? %sRegister%s now!"), "<a href='register.php'>", "</a>");
@@ -227,7 +229,7 @@ require_once 'inc/display_file.php';
 
     ?>
 
-    <p class='editable newexpcomment' id='newexpcomment_<?php echo $id; ?>'><?php echo _('Add a comment'); ?></p>
+    <!-- <p class='editable newexpcomment' id='newexpcomment_<?php echo $id; ?>'><?php echo _('Add a comment'); ?></p> -->
 <?php
 
 // check if there is something to display first
