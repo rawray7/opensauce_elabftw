@@ -220,31 +220,12 @@ require_once 'inc/display_file.php';
     <?php 
     //if logged in 
     if (isset($_SESSION['auth']) && $_SESSION['auth'] === 1) {
-        
 
-        // check if there is something to display first
-        // get all comments, and infos on the commenter associated with this experiment
-        $sql = "SELECT * FROM experiments_comments LEFT JOIN users ON (experiments_comments.userid = users.userid) WHERE exp_id = :id ORDER BY experiments_comments.datetime DESC";
-        $req = $pdo->prepare($sql);
         $req->execute(array(
             'id' => $id
         ));
 
         echo "<p class='editable newexpcomment' id='newexpcomment_" . $id . "'> 'Add a comment' </p>"; 
-
-        if ($req->rowCount() > 0) {
-            // there is comments to display
-            while ($comments = $req->fetch()) {
-                if (empty($comments['firstname'])) {
-                    $comments['firstname'] = '[deleted]';
-                }
-            echo "<div class='expcomment_box'>
-            <img class='align_right' src='img/small-trash.png' title='delete' alt='delete' onClick=\"deleteThisAndReload(".$comments['id'] . ",'expcomment')\" />";
-                echo "<span class='smallgray'>On " . $comments['datetime'] . " " . $comments['firstname'] . " " . $comments['lastname'] . " wrote :</span><br />";
-                echo "<p class='editable' id='expcomment_" . $comments['id'] . "'>" . $comments['comment'] . "</p></div>";
-            }
-        }
-        
 
 
     } else {
@@ -259,23 +240,23 @@ require_once 'inc/display_file.php';
 
 // check if there is something to display first
 // get all comments, and infos on the commenter associated with this experiment
-// $sql = "SELECT * FROM experiments_comments LEFT JOIN users ON (experiments_comments.userid = users.userid) WHERE exp_id = :id ORDER BY experiments_comments.datetime DESC";
-// $req = $pdo->prepare($sql);
-// $req->execute(array(
-//     'id' => $id
-// ));
-// if ($req->rowCount() > 0) {
-//     // there is comments to display
-//     while ($comments = $req->fetch()) {
-//         if (empty($comments['firstname'])) {
-//             $comments['firstname'] = '[deleted]';
-//         }
-//     echo "<div class='expcomment_box'>
-//     <img class='align_right' src='img/small-trash.png' title='delete' alt='delete' onClick=\"deleteThisAndReload(".$comments['id'] . ",'expcomment')\" />";
-//         echo "<span class='smallgray'>On " . $comments['datetime'] . " " . $comments['firstname'] . " " . $comments['lastname'] . " wrote :</span><br />";
-//         echo "<p class='editable' id='expcomment_" . $comments['id'] . "'>" . $comments['comment'] . "</p></div>";
-//     }
-// }
+$sql = "SELECT * FROM experiments_comments LEFT JOIN users ON (experiments_comments.userid = users.userid) WHERE exp_id = :id ORDER BY experiments_comments.datetime DESC";
+$req = $pdo->prepare($sql);
+$req->execute(array(
+    'id' => $id
+));
+if ($req->rowCount() > 0) {
+    // there is comments to display
+    while ($comments = $req->fetch()) {
+        if (empty($comments['firstname'])) {
+            $comments['firstname'] = '[deleted]';
+        }
+    echo "<div class='expcomment_box'>
+    <img class='align_right' src='img/small-trash.png' title='delete' alt='delete' onClick=\"deleteThisAndReload(".$comments['id'] . ",'expcomment')\" />";
+        echo "<span class='smallgray'>On " . $comments['datetime'] . " " . $comments['firstname'] . " " . $comments['lastname'] . " wrote :</span><br />";
+        echo "<p class='editable' id='expcomment_" . $comments['id'] . "'>" . $comments['comment'] . "</p></div>";
+    }
+}
 ?>
 
 </div>
