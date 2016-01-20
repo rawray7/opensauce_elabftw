@@ -50,12 +50,10 @@ if (!Tools::usingSsl()) {
         <h3> A powerful platform for chemical collaboration. Explore, adapt, document and share actionable recipes with the world. Open Sauce is built on the eLabFTW electronic lab notebook software, so you can quickly record, analyze and timestamp your experiments.</h3>
         <br>
     </p>
-    <h4> OpenSauce.us is currently in a public beta. We would greatly appreciate your feedback via our <a href='https://github.com/rawray7/opensauce_elabftw/issues'> GitHub issue tracker </a>. </h4>
+    <h4> OpenSauce.us is currently in a public beta.<br> We would greatly appreciate your feedback via our <a href='https://github.com/rawray7/opensauce_elabftw/issues'> GitHub issue tracker </a>. </h4>
     <br>
     <h4><a href='login.php'> Sign in to your account. </a> </h4>
-    <br>
     <h4> Don't have an account? <a href='login.php'> Register </a> now! </h4>
-
 </section>
 
 <script>
