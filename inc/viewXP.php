@@ -216,7 +216,26 @@ require_once 'inc/display_file.php';
 <section id='expcomment_container'>
 <div id='expcomment' class='box'>
     <h3><img src='img/comment.png' alt='comment' /> <?php echo _('Comments'); ?></h3>
-    <p class='editable newexpcomment' id='newexpcomment_<?php echo $id; ?>'><?php echo _('Add a comment'); ?></p>
+    
+    <?php 
+    //if logged in 
+    if (isset($_SESSION['auth']) && $_SESSION['auth'] === 1) {
+
+        $req->execute(array(
+            'id' => $id
+        ));
+
+        echo "<p class='editable newexpcomment' id='newexpcomment_" . $id . "'> 'Add a comment' </p>"; 
+
+
+    } else {
+        printf(_("Log in to comment.<br> Don't have an account? %sRegister%s now!"), "<a href='register.php'>", "</a>");
+    }
+
+    ?>
+
+
+
 <?php
 
 // check if there is something to display first
@@ -239,6 +258,7 @@ if ($req->rowCount() > 0) {
     }
 }
 ?>
+
 </div>
 </section>
 
