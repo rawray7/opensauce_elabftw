@@ -50,6 +50,37 @@ if (!Tools::usingSsl()) {
     <br>
     <h4> OpenSauce.us is currently in a public beta. We would greatly appreciate your feedback via our <a href='https://github.com/rawray7/opensauce_elabftw/issues'> GitHub issue tracker </a>. </h4>
 	
+    <!-- Login form -->
+    <form method="post" action="app/login-exec.php" autocomplete="off">
+        <h3><?php echo _('Sign in to your account'); ?></h3>
+        <p>
+        <label class='block' for="username"><?php echo _('Username'); ?></label>
+        <input name="username" type="text" value='<?php
+            // put the username in the field if we just registered
+            if (isset($_SESSION['username'])) {
+                echo $_SESSION['username'];
+            }
+            ?>' required /><br>
+            <label class='block' for="password"><?php echo _('Password'); ?></label>
+            <input name="password" type="password" required /><br>
+            <!-- form key -->
+            <?php echo $formKey->getFormkey(); ?>
+        <br>
+        <label for='rememberme'><?php echo _('Remember me'); ?></label>
+        <input type='checkbox' name='rememberme' id='rememberme' />
+        
+        <div id='loginButtonDiv'>
+        <button type="submit" class='button' name="Submit"><?php echo _('Login'); ?></button>
+        </div>
+    </form>
+    <?php printf(_("Don't have an account? %sRegister%s now!<br>Lost your password? %sReset%s it!"), "<a href='register.php'>", "</a>", "<a href='#' class='trigger'>", "</a>"); ?></p>
+    <div class='toggle_container'>
+    <form name='resetPass' method='post' action='app/reset.php'>
+    <input placeholder='<?php echo _('Enter your email address'); ?>' name='email' type='email' required />
+    <button class='button' type="submit" name="Submit"><?php echo _('Send new password'); ?></button>
+    </form>
+    </div>
+
 </section>
 
 <script>
