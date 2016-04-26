@@ -191,9 +191,7 @@ $sql = "SELECT items.id AS itemid,
     LEFT JOIN items_types ON (items.type = items_types.id)
     WHERE experiments_links.item_id = :id";
 $req = $pdo->prepare($sql);
-$req->execute(array(
-    'id' => $id
-));
+$req->execute();
 // Check there is at least one link to display
 if ($req->rowcount() > 0) {
     while ($link = $req->fetch()) {
